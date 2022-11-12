@@ -389,6 +389,9 @@ p{
             bottom: 100px;
             left: 20%;
         }
+        iframe{
+            height: 200px;
+        }
       }
 
       @media only screen and (max-width: 767px) {
@@ -400,8 +403,9 @@ p{
             width: 70%;
         }
         #header h1{
-            font-size: 4rem;
-            padding-top: 50px;
+            font-size: 3rem;
+            padding-top: 10px;
+            margin-bottom: 50px;
         }
 
         .logo{
@@ -410,6 +414,11 @@ p{
         .ke{
             font-size: 2.5rem;
         }
-
+        .btn-outline-light{
+            margin-top: 50px;
+        }
+        iframe{
+            height: 140px;
+        }
        
       }
