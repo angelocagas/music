@@ -1,3 +1,12 @@
+// Dynamic year and age
+const now = new Date();
+document.getElementById("current-year").textContent = now.getFullYear();
+
+const bday = new Date(2002, 3, 11); // April 11, 2002 (month is 0-indexed)
+let age = now.getFullYear() - bday.getFullYear();
+if (now < new Date(now.getFullYear(), 3, 11)) age--;
+document.getElementById("my-age").textContent = age;
+
 //Get the button
 let mybutton = document.getElementById("btn-back-to-top");
 
