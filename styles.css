@@ -111,7 +111,33 @@ p{
     font-size: 1.2rem;
     font-family: 'Montserrat';
     font-weight: 300;
+    position: relative;
 }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d6c6b2;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* ── Navbar scroll glass ── */
+.navbar-scrolled {
+    background: rgba(125, 90, 80, 0.85) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background 0.3s;
+}
+
+/* ── Back-to-top hover ── */
+#btn-back-to-top { transition: transform 0.25s ease, background-color 0.25s ease; }
+#btn-back-to-top:hover { transform: translateY(-4px); background-color: #B4846C; }
 
 
 #header h1{

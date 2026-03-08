@@ -22,25 +22,34 @@ revealEls.forEach(el => observer.observe(el));
 //Get the button
 let mybutton = document.getElementById("btn-back-to-top");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-scrollFunction();
-};
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
 
-function scrollFunction() {
-if (
-document.body.scrollTop > 20 ||
-document.documentElement.scrollTop > 20
-) {
-mybutton.style.display = "block";
-} else {
-mybutton.style.display = "none";
-}
-}
-// When the user clicks on the button, scroll to the top of the document
-mybutton.addEventListener("click", backToTop);
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
 
-function backToTop() {
-document.body.scrollTop = 0;
-document.documentElement.scrollTop = 0;
-}
+    // Navbar glass
+    navbar.classList.toggle('navbar-scrolled', scrollY > 60);
+
+    // Back to top button
+    mybutton.style.display = (scrollY > 20) ? 'block' : 'none';
+
+    // Scrollspy
+    const sectionNavMap = { 'fingerstyle': 'fingerstyle', 'electric-g': 'fingerstyle', 'about': 'about' };
+    let current = '';
+    sections.forEach(section => {
+        if (scrollY >= section.offsetTop - 120) {
+            current = sectionNavMap[section.getAttribute('id')] || '';
+        }
+    });
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        link.classList.toggle('active', href === current);
+    });
+});
+
+mybutton.addEventListener("click", () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
