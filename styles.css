@@ -273,7 +273,6 @@ hr {
 
 .ke{
     padding: 100px 15% 0;
-    padding-top: 100px;
 }
 
 .carousel-item{
@@ -296,14 +295,6 @@ iframe:hover {
     background-color: #FFFFF0;
     text-align: center;
     color: #000;
-}
-
-.ke{
-    padding-top: 100px;
-}
-
-.carousel-item{
-    padding: 5% 15%;
 }
 
 .fa-circle-arrow-right{
