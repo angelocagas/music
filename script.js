@@ -54,7 +54,8 @@ window.addEventListener('scroll', () => {
     const sectionNavMap = {
         'fingerstyle': 'fingerstyle',
         'electric-g': 'fingerstyle',
-        'about': 'about'
+        'about': 'about',
+        'contact': 'contact'
     };
     let current = '';
     sections.forEach(section => {
@@ -72,6 +73,20 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// ── Contact form → mailto ──
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const subject = encodeURIComponent(`Message from ${name}`);
+        const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+        window.location.href = `mailto:angelocagas11@gmail.com?subject=${subject}&body=${body}`;
+    });
+}
 
 // ── Carousel ──
 const carousel = document.getElementById('fingerstyle-carousel');
